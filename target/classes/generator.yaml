@@ -1,0 +1,17 @@
+#数据库配置
+db:
+  url: jdbc:mysql://localhost:3306/szy?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+  username: root
+  password: 123456
+  #java注释部分 代码作者
+author: LiangKai
+#代码生成位置
+packageName: com.smartwater.javacode
+#该配置主要是配置需要生成哪些文件
+path:
+  controller: controller
+  service: service
+  interf:
+  dao: dao
+  entity: entity
+  mapper: mybatis.mappers

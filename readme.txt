@@ -1,0 +1,8 @@
+该程序主要是生成SSM框架的代码
+Entity
+Controller
+Service
+Dao
+Mapper.xml
+
+配置好配置文件后直接运行application下的Main方法
