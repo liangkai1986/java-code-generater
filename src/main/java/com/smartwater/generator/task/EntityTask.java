@@ -49,7 +49,7 @@ public class EntityTask extends AbstractTask {
     @Override
     public void run() throws IOException, TemplateException {
         // 生成Entity填充数据
-        System.out.println("Generating " + className + ".java");
+        System.out.println("开始生成实体对象： " + className + ".java");
         Map<String, String> entityData = new HashMap<>();
         entityData.put("BasePackageName", ConfigUtil.getConfiguration().getPackageName());
         entityData.put("EntityPackageName", ConfigUtil.getConfiguration().getPath().getEntity());
@@ -64,7 +64,7 @@ public class EntityTask extends AbstractTask {
             entityData.put("Methods", GeneratorUtil.generateEntityMethods(parentClassName, tableInfos, foreignKey));
         } else { // 单表关系
             entityData.put("Properties", GeneratorUtil.generateEntityProperties(tableInfos));
-            //此处若要生成javaBean 注释掉TableName 打开Methods注释
+            //此处若要生成标准的javaBean 注释掉TableName 打开Methods注释
             entityData.put("TableName", tableName);
             //entityData.put("Methods", GeneratorUtil.generateEntityMethods(tableInfos));
         }

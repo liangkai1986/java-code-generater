@@ -25,7 +25,7 @@ public class ControllerTask extends AbstractTask {
     @Override
     public void run() throws IOException, TemplateException {
         // 生成Controller填充数据
-        System.out.println("Generating " + className + "Controller.java");
+        System.out.println("开始生成Controller类： " + className + "Controller.java");
         Map<String, String> controllerData = new HashMap<>();
         controllerData.put("BasePackageName", ConfigUtil.getConfiguration().getPackageName());
         controllerData.put("ControllerPackageName", ConfigUtil.getConfiguration().getPath().getController());

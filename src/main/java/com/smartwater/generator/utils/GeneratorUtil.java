@@ -21,10 +21,13 @@ public class GeneratorUtil {
     public static String generateEntityProperties(List<ColumnInfo> infos) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < infos.size(); i++) {
+            sb.append("    ").append("/**").append("\n");
+            sb.append("    ").append(" *").append(infos.get(i).getComment()).append("\n");
+            sb.append("    ").append(" */").append("\n");
             if(infos.get(i).isPrimaryKey()){
-                sb.append("@Id").append("\n");
+                sb.append("    ").append("@Id").append("\n");
             }
-            sb.append("    ").append("@Column(name = \""+infos.get(i).getPropertyName()+ "\")").append("\n");
+            sb.append("    ").append("@Column(name = \""+infos.get(i).getColumnName()+ "\")").append("\n");
             sb.append("    ").append("private ").append(TypeUtil.parseTypeFormSqlType(infos.get(i).getType())).append(" ").append(infos.get(i).getPropertyName()).append(";\n").append("\n");
         }
         return sb.toString();

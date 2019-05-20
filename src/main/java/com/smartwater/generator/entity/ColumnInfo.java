@@ -15,18 +15,20 @@ public class ColumnInfo implements Serializable {
     private boolean isPrimaryKey; // 是否主键
 
     private String columnTypeName;//列的数据类型名称 对应mapper文件jdbcType属性
+    private String comment;//数据库备注信息
 
     public ColumnInfo() {
 
     }
 
     public ColumnInfo(String columnName, int type,
-                      boolean isPrimaryKey,String columnTypeName) {
+                      boolean isPrimaryKey,String columnTypeName,String comment) {
         this.columnName = columnName;
         this.type = type;
         this.propertyName = StringUtil.columnName2PropertyName(columnName);
         this.isPrimaryKey = isPrimaryKey;
         this.columnTypeName = columnTypeName;
+        this.comment = comment;
 
     }
 
@@ -68,5 +70,13 @@ public class ColumnInfo implements Serializable {
 
     public void setColumnTypeName(String columnTypeName) {
         this.columnTypeName = columnTypeName;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

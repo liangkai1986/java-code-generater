@@ -39,7 +39,7 @@ public class MapperTask extends AbstractTask {
     @Override
     public void run() throws IOException, TemplateException {
         // 生成Mapper填充数据
-        System.out.println("Generating " + className + "Mapper.xml");
+        System.out.println("开始生成Mapper文件： " + className + "Mapper.xml");
         Map<String, String> mapperData = new HashMap<>();
         mapperData.put("PackageName", ConfigUtil.getConfiguration().getPackageName() + "." + ConfigUtil.getConfiguration().getPath().getDao());
         mapperData.put("BasePackageName", ConfigUtil.getConfiguration().getPackageName());

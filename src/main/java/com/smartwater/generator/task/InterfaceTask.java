@@ -25,7 +25,7 @@ public class InterfaceTask extends AbstractTask {
     @Override
     public void run() throws IOException, TemplateException {
         // 生成Service接口填充数据
-        System.out.println("Generating " + className + "Service.java");
+        System.out.println("开始生成Service接口类： " + className + "Service.java");
         Map<String, String> interfaceData = new HashMap<>();
         interfaceData.put("BasePackageName", ConfigUtil.getConfiguration().getPackageName());
         interfaceData.put("InterfacePackageName", ConfigUtil.getConfiguration().getPath().getInterf());

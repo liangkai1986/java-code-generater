@@ -27,6 +27,8 @@ public class TaskQueue {
         if (!StringUtil.isBlank(ConfigUtil.getConfiguration().getPath().getDao())) {
             taskQueue.add(new DaoTask(className));
         }
+
+        //生成前端代码--待完善
     }
 
     public void initSingleTasks(String className, String tableName, List<ColumnInfo> tableInfos) {

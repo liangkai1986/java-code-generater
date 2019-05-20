@@ -41,14 +41,14 @@ public class ServiceTask extends AbstractTask {
             serviceData.put("Override", "");
             serviceData.put("InterfaceImport", "");
             fileName = className + "Service.java";
-            System.out.println("Generating " + className + "Service.java");
+            System.out.println("开始生成Service类： " + className + "Service.java");
         } else {
             serviceData.put("Impl", "Impl implements " + className + "Service");
             serviceData.put("Override", "\n    @Override");
             //serviceData.put("InterfaceImport", "import " + ConfigUtil.getConfiguration().getPackageName() + ConfigUtil.getConfiguration().getPath().getInterf() + "." + className + "Service;");
             //fileName = className + "ServiceImpl.java";
             fileName = className + "Service.java";
-            System.out.println("Generating " + className + "ServiceImpl.java");
+            System.out.println("开始生成Service实现类： " + className + "ServiceImpl.java");
         }
         // 生成Service文件
         FileUtil.generateToJava(FreemarketConfigUtils.TYPE_SERVICE, serviceData, filePath + fileName);

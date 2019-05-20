@@ -15,30 +15,6 @@ public class Main {
         single();
     }
 
-//    public static void many2many() {
-//        Invoker invoker = new Many2ManyInvoker.Builder()
-//                .setTableName("user")
-//                .setClassName("User")
-//                .setParentTableName("role")
-//                .setParentClassName("Role")
-//                .setRelationTableName("user_role")
-//                .setForeignKey("userId")
-//                .setParentForeignKey("roleId")
-//                .build();
-//        invoker.execute();
-//    }
-//
-//    public static void one2many() {
-//        Invoker invoker = new One2ManyInvoker.Builder()
-//                .setTableName("user")
-//                .setClassName("User")
-//                .setParentTableName("office")
-//                .setParentClassName("Office")
-//                .setForeignKey("officeId")
-//                .build();
-//        invoker.execute();
-//    }
-
     public static void single() {
         Invoker invoker = new SingleInvoker.Builder()
                 .setTableName("user")
