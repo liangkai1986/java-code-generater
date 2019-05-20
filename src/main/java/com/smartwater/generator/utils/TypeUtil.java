@@ -140,7 +140,7 @@ public class TypeUtil {
             case Types.BINARY:
             case Types.VARBINARY:
             case Types.LONGVARBINARY:
-                sb.append("byte[]");
+                sb.append("Byte[]");
                 break;
             case Types.NULL:
             case Types.OTHER:
