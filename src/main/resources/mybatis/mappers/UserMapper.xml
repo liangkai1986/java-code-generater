@@ -7,92 +7,13 @@
         <result column="user_name" property="userName" jdbcType="VARCHAR"/> 
         <result column="email" property="email" jdbcType="VARCHAR"/> 
         <result column="age" property="age" jdbcType="INT"/> 
+        <result column="CREATE_USER_ID" property="createUserId" jdbcType="VARCHAR"/> 
+        <result column="UPDATE_USER_ID" property="updateUserId" jdbcType="VARCHAR"/> 
+        <result column="UPDATE_TIMESTAMP" property="updateTimestamp" jdbcType="TIMESTAMP"/> 
+        <result column="CREATE_TIMESTAMP" property="createTimestamp" jdbcType="TIMESTAMP"/> 
 
         
         
     </resultMap>
-
-    <sql id="userColumns">
-        user.ID AS "id",
-        user.user_name AS "userName",
-        user.email AS "email",
-        user.age AS "age"
-    </sql>
-
-    <sql id="userJoins">
-        
-    </sql>
-
-    <select id="get" resultMap="userResultMap">
-        SELECT
-        <include refid="userColumns" />
-        FROM user <include refid="userJoins" />
-        <where>
-        user.ID = #{id}
-        </where>
-    </select>
-
-    <select id="findList" resultMap="userResultMap">
-        SELECT
-        <include refid="userColumns" />
-        FROM user <include refid="userJoins" />
-        <where>
-        </where>
-    </select>
-
-    <select id="findAllList" resultMap="userResultMap">
-        SELECT
-        <include refid="userColumns" />
-        FROM user <include refid="userJoins" />
-        <where>
-        </where>
-    </select>
-
-    <insert id="insert">
-        INSERT INTO user(
-            ID,
-            user_name,
-            email,
-            age
-        )
-        VALUES (
-            #{id},
-            #{userName},
-            #{email},
-            #{age}
-        )
-    </insert>
-
-    <insert id="insertBatch">
-        INSERT INTO user(
-            ID,
-            user_name,
-            email,
-            age
-        )
-        VALUES
-        <foreach collection ="list" item="user" separator =",">
-        (
-            #{user.id},
-            #{user.userName},
-            #{user.email},
-            #{user.age}
-        )
-        </foreach>
-    </insert>
-
-    <update id="update">
-        UPDATE user SET
-        ID = #{id},
-        user_name = #{userName},
-        email = #{email},
-        age = #{age}
-        WHERE ID = #{id}
-    </update>
-
-    <update id="delete">
-        DELETE FROM user
-        WHERE ID = #{id}
-    </update>
 
 </mapper>

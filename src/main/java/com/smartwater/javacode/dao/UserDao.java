@@ -5,7 +5,7 @@ import tk.mybatis.mapper.common.Mapper;
 
 /**
  * Author LiangKai
- * Date 2019-05-17
+ * Date 2019-05-20
  */
 @org.apache.ibatis.annotations.Mapper
 public interface UserDao extends Mapper<User>{

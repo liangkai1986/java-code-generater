@@ -5,7 +5,7 @@ db:
   password: 123456
   #java注释部分 代码作者
 author: LiangKai
-#代码生成位置
+#代码生成包名称
 packageName: com.smartwater.javacode
 #该配置主要是配置需要生成哪些文件
 path:

@@ -25,11 +25,12 @@ import org.springframework.web.bind.annotation.*;
 
 import tk.mybatis.mapper.entity.Example;
 
-
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * Author LiangKai
- * Date 2019-05-17
+ * Date 2019-05-20
  */
 
 @RestController
@@ -44,10 +45,12 @@ public class UserController extends BaseController<User, User>{
     private UserService userService;
 
     /***
-    * 分页查询
+    * 列表分页查询
     * @param query
     * @return
     */
+    @ApiOperation(value="分页查询User列表信息", notes="根据User对象的属性查询User列表信息")
+    @ApiImplicitParam(name = "User", value = "User对象", required = true, dataType = "User")
     @PostMapping("/page")
     @Override
     protected ResponseData<TableData<User>> queryRecord(@RequestBody User query){
@@ -69,6 +72,8 @@ public class UserController extends BaseController<User, User>{
     * @param record
     * @return
     */
+    @ApiOperation(value="保存User信息", notes="保存User信息")
+    @ApiImplicitParam(name = "User", value = "User对象", required = true, dataType = "User")
     @PostMapping("/add")
     @Override
     protected ResponseData<User> addRecord(@RequestBody User record) {
@@ -90,6 +95,8 @@ public class UserController extends BaseController<User, User>{
     * @param record
     * @return
     */
+    @ApiOperation(value="删除User信息", notes="根据List<User>列表删除User信息")
+    @ApiImplicitParam(name = "User", value = "List<User>集合", required = true, dataType = "List<User>")
     @PostMapping("/delete")
     @Override
     protected ResponseData<User> deleteRecord(@RequestBody List<User> record) {
@@ -109,6 +116,8 @@ public class UserController extends BaseController<User, User>{
     * @param record
     * @return
     */
+    @ApiOperation(value="更新User信息", notes="根据User更新User信息")
+    @ApiImplicitParam(name = "User", value = "User对象", required = true, dataType = "User")
     @PostMapping("/update")
     @Override
     protected ResponseData<User> updateRecord(@RequestBody User record){
