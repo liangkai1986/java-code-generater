@@ -1,4 +1,8 @@
 注意事项：
+
+配置文件src/main/resources/generator.yaml
+程序主函数 com.smartwater.generator.application.Main.java
+
 该功能根据公司现有框架结构调整如下：
 1：所有的表结构必须有如下属性
     字段名称               字段数据类型       备注信息
