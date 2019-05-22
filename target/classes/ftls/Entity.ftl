@@ -7,7 +7,9 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
-import cn.smartwatercloud.smartwater.common.entity.BaseEntity;
+import cn.smartwatercloud.smartwater.common.entity.PageEntity;
+;
+
 import lombok.Data;
 import lombok.ToString;
 
@@ -21,7 +23,8 @@ import javax.persistence.Table;
 @Data
 @ToString
 @Table(name = "${TableName}")
-public class ${ClassName} extends BaseEntity implements Serializable {
+public class ${ClassName} extends PageEntity implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     ${Properties}

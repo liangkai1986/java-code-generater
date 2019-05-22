@@ -25,7 +25,8 @@ import org.springframework.web.bind.annotation.*;
 
 import tk.mybatis.mapper.entity.Example;
 
-
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * Author ${Author}
@@ -44,10 +45,12 @@ public class ${ClassName}Controller extends BaseController<${ClassName}, ${Class
     private ${ClassName}Service ${EntityName}Service;
 
     /***
-    * 分页查询
+    * 列表分页查询
     * @param query
     * @return
     */
+    @ApiOperation(value="分页查询${ClassName}列表信息", notes="根据${ClassName}对象的属性查询${ClassName}列表信息")
+    @ApiImplicitParam(name = "${ClassName}", value = "${ClassName}对象", required = true, dataType = "${ClassName}")
     @PostMapping("/page")
     @Override
     protected ResponseData<TableData<${ClassName}>> queryRecord(@RequestBody ${ClassName} query){
@@ -56,9 +59,9 @@ public class ${ClassName}Controller extends BaseController<${ClassName}, ${Class
         Example.Criteria criteria = example.createCriteria();
         //TODO 此处需要自己添加实际的查询条件
         //=============================Start=================================
-        if (!StringUtils.isEmpty("实体类的查询参数")) {
-            criteria.andLike("查询参数名称", "%" + "实体类的查询参数" + "%");
-        }
+        //if (!StringUtils.isEmpty(query.getUserName())) {
+        //    criteria.andLike("userName", "%" + query.getUserName() + "%");
+        //}
         //=============================End===================================
         PageInfo<${ClassName}> pageInfo = ${EntityName}Service.selectByExampleList(example, query.getPageNum(), query.getPageSize());
         return getTableData(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMessage(), pageInfo);
@@ -69,6 +72,8 @@ public class ${ClassName}Controller extends BaseController<${ClassName}, ${Class
     * @param record
     * @return
     */
+    @ApiOperation(value="新增${ClassName}信息", notes="保存${ClassName}信息")
+    @ApiImplicitParam(name = "${ClassName}", value = "${ClassName}对象", required = true, dataType = "${ClassName}")
     @PostMapping("/add")
     @Override
     protected ResponseData<${ClassName}> addRecord(@RequestBody ${ClassName} record) {
@@ -90,6 +95,8 @@ public class ${ClassName}Controller extends BaseController<${ClassName}, ${Class
     * @param record
     * @return
     */
+    @ApiOperation(value="删除${ClassName}信息", notes="根据List<${ClassName}>列表删除${ClassName}信息")
+    @ApiImplicitParam(name = "${ClassName}", value = "List<${ClassName}>集合", required = true, dataType = "List<${ClassName}>")
     @PostMapping("/delete")
     @Override
     protected ResponseData<${ClassName}> deleteRecord(@RequestBody List<${ClassName}> record) {
@@ -109,6 +116,8 @@ public class ${ClassName}Controller extends BaseController<${ClassName}, ${Class
     * @param record
     * @return
     */
+    @ApiOperation(value="更新${ClassName}信息", notes="根据${ClassName}对象更新${ClassName}信息")
+    @ApiImplicitParam(name = "${ClassName}", value = "${ClassName}对象", required = true, dataType = "${ClassName}")
     @PostMapping("/update")
     @Override
     protected ResponseData<${ClassName}> updateRecord(@RequestBody ${ClassName} record){

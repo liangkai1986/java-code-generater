@@ -59,9 +59,9 @@ public class ${ClassName}Controller extends BaseController<${ClassName}, ${Class
         Example.Criteria criteria = example.createCriteria();
         //TODO 此处需要自己添加实际的查询条件
         //=============================Start=================================
-        if (!StringUtils.isEmpty("实体类的查询参数")) {
-            criteria.andLike("查询参数名称", "%" + "实体类的查询参数" + "%");
-        }
+        //if (!StringUtils.isEmpty(query.getUserName())) {
+        //    criteria.andLike("userName", "%" + query.getUserName() + "%");
+        //}
         //=============================End===================================
         PageInfo<${ClassName}> pageInfo = ${EntityName}Service.selectByExampleList(example, query.getPageNum(), query.getPageSize());
         return getTableData(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMessage(), pageInfo);

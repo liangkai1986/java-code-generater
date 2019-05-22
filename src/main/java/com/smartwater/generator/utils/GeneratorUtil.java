@@ -191,14 +191,14 @@ public class GeneratorUtil {
         StringBuilder sb = new StringBuilder();
         for (ColumnInfo info : infos) {
             if (info.isPrimaryKey()) {
-                sb.append("<id column=\"").append(info.getPropertyName())
+                sb.append("<id column=\"").append(info.getColumnName())
                         .append("\" property=\"").append(info.getPropertyName())
-                        .append("\" jdbcType=\"").append(info.getColumnTypeName())
+                        .append("\" jdbcType=\"").append(TypeUtil.parseJdbcTypeFormSqlType(info.getType()))
                         .append("\"/> \n");
             } else {
                 sb.append("        ").append("<result column=\"").append(info.getColumnName())
                         .append("\" property=\"").append(info.getPropertyName())
-                        .append("\" jdbcType=\"").append(info.getColumnTypeName())
+                        .append("\" jdbcType=\"").append(TypeUtil.parseJdbcTypeFormSqlType(info.getType()))
                         .append("\"/> \n");
             }
         }

@@ -17,8 +17,8 @@ public class Main {
 
     public static void single() {
         Invoker invoker = new SingleInvoker.Builder()
-                .setTableName("user")
-                .setClassName("User")
+                .setTableName("user_copy")
+                .setClassName("UserCopy")
                 .build();
         invoker.execute();
     }
